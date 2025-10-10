@@ -15,6 +15,8 @@ Microsoft Entra ID also provides security and compliance features such as **Cond
 
 In Microsoft Entra, a **user** is an identity that is used to authenticate and authorize access to resources in an organization’s environment.
 
+<img width="1650" height="398" alt="image" src="https://github.com/user-attachments/assets/0340824c-28b3-4bf5-832c-25eb5ab7ef22" />
+
 ---
 
 ## Microsoft Entra Groups
@@ -58,6 +60,8 @@ The following roles can be assigned within an AU:
 * License administrator
 * Password administrator
 * User administrator
+
+<img width="1386" height="623" alt="image" src="https://github.com/user-attachments/assets/15b9c7ba-4794-42a4-9bb1-654b525154b2" />
 
 ---
 
@@ -132,4 +136,7 @@ The **Group settings management pane** is accessed by navigating to the **Groups
 * **Licenses**: Displays the licenses assigned to a group, which members inherit automatically.
 * **Azure role assignments**: Displays the resources on a subscription level to which the group members have access.
 * **Dynamic membership rules**: Displays the configuration rules for dynamic groups, allowing you to change the criteria that affect group members.
+
+  <img width="1650" height="1019" alt="image" src="https://github.com/user-attachments/assets/c10bab27-fe0a-4595-a6cb-33bbdcfba7fb" />
+
 
