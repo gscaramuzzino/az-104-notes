@@ -63,7 +63,38 @@ Microsoft Entra enables organizations to ensure that their users access Azure re
 Enterprise State Roaming
 Enterprise State Roaming is a feature in Microsoft Entra ID that allows users to synchronize their application and system settings across their Windows devices. This means that when a user sets up a new Windows device, their familiar settings and preferences will be applied to the new device automaticall
 
+Device Audit Logs
+The audit logs section under Devices in Microsoft Entra ID contains a record of all activities related to device management. Audit logs provide detailed information on events and actions performed within the system. These logs offer valuable insights for administrators looking to monitor security, troubleshoot issues, and maintain compliance.
 
+Microsoft Entra ID offer plans
 
+Microsoft Entra ID Free: This offers the most basic features, such as support for SSO across Azure, Microsoft 365, and other popular Software as a Service (SaaS) applications, Azure Business-to-Business (B2B) for external users, support for Microsoft Entra Connect synchronization, self-service password change, user and group management, and standard security reports.
+Microsoft Entra ID P1: Previously known as Azure Active Directory P1. In addition to the Free license features, this license offers a service-level agreement, advanced reporting, Conditional Access, Microsoft Entra Connect Health, advanced administration such as dynamic groups, self-service group management, and Microsoft Identity Manager.
+Microsoft Entra ID P2: Previously known as Azure Active Directory P2. In addition to the Free and Microsoft Entra ID P1 license features, the Microsoft Entra ID P2 license includes Identity Protection, Privileged Identity Management (PIM), access reviews, and entitlement management.
+Microsoft Entra ID Governance: For users of Microsoft Entra ID P1 and P2, Microsoft Entra ID Governance provides a sophisticated suite of identity governance features that can be added at a premium. These capabilities include automated user and group provisioning, HR-driven provisioning, terms of use attestation, basic and advanced access certifications and reviews, basic and advanced entitlement management, life cycle workflows, identity governance dashboard, and PIM.
+Microsoft Entra Verified ID: Microsoft Entra Verified ID is a license currently included free within any Microsoft Entra ID subscription, such as Microsoft Entra ID Free. This service enables organizations to verify and issue credentials based on unique identity attributes, granting individuals control over their digital credentials and improving visibility. The benefits of Verified ID include reduced organizational risk, simplified audit processes, and seamless integration for developers to create user-centric serverless applications. Organizations can enable Verified ID for free in the Microsoft Entra admin center.
+Microsoft Entra Permissions Management: This is a set of identity governance features tailored for Microsoft Entra ID P1 and P2 subscribers. These capabilities include automated user and group provisioning, HR-driven provisioning, terms of use attestation, basic and advanced access certifications and reviews, basic and advanced entitlement management, life cycle workflows, identity governance dashboard, and PIM.
+Microsoft Entra Workload ID: With the standalone Microsoft Entra Workload ID product, organizations can reduce risk exposure from compromised or lost identities or credentials, regulate workload identity access with adaptive policies, and obtain a thorough workload identity health-check view. The monthly pricing for Workload ID is based on the workload identity.
+
+Configuring Microsoft Entra Join
+With Microsoft Entra Join, you can join devices directly to Microsoft Entra without the need to join your on-premises Active Directory in a hybrid environment. While Microsoft Entra hybrid join with an on-premises Active Directory might still be preferred for some scenarios, Microsoft Entra Join simplifies the process of adding devices and modernizes device management for your organization. This can result in the reduction of device-related IT costs.
+
+Your users may have access to corporate assets through their devices. To protect these corporate assets, you want to control these devices. This allows your administrators to ensure that your users are accessing resources from devices that meet your standards for security and compliance.
+
+Microsoft Entra Join is a good solution when you want to manage devices with a cloud device management solution, when you want to modernize your application infrastructure, when you want to simplify device provisioning for geographically distributed users, and when your company adopts Microsoft 365 as the productivity suite for your users.
+
+Microsoft Entra Join Methods
+Microsoft Entra Join can be employed through any of the following methods:
+
+Bulk deployment: This method is used to join large numbers of new Windows devices to Microsoft Entra and Microsoft Intune.
+Windows Autopilot: This is a collection of technologies used to preconfigure Windows 10 and later devices so that the devices are ready for productive use. Autopilot can also be used to reset, repurpose, and recover devices.
+Self-service experience: This is also referred to as a first-run experience, which is mainly used to join a new device to Microsoft Entra.
+
+Performing Bulk Updates Using the Azure Portal
+Performing bulk user updates is like managing single users (such as internal and guest users). The only property that can’t be set for multiple users is resetting a password, which must be done for a single user.
+
+Azure has also improved its bulk user settings by adding a drop-down menu that enables you to perform updates via the downloadable CSV template, which you then re-upload.
+
+<img width="1650" height="469" alt="image" src="https://github.com/user-attachments/assets/f30b8f69-f379-49f9-9253-a461be94e5cb" />
 
 
