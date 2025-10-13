@@ -1,3 +1,5 @@
+# Chapter 2 Devices in Microsoft Entra ID.md
+
 In this chapter, the following topics will be covered:
 
 - Configuring and Managing Devices
