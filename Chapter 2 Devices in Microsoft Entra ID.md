@@ -113,4 +113,23 @@ Azure has also improved its bulk user settings by adding a drop-down menu that e
 
 <img width="1650" height="469" alt="image" src="https://github.com/user-attachments/assets/f30b8f69-f379-49f9-9253-a461be94e5cb" />
 
+Navigating Guest Accounts
+In Microsoft Entra ID, a guest account is a user account that is created in one Microsoft Entra directory, allowing a user from another Microsoft Entra directory, or an external identity provider, to access resources in the first tenant. Guest accounts can be invited to access applications, groups, or resources by users with appropriate permissions in the inviting tenant. This feature enables organizations to collaborate and share resources with external partners, contractors, or customers while maintaining control over their own corporate data. Guest users have limited access to Microsoft Entra ID resources, and their permissions can be managed and revoked by the inviting organization.
+
+Configuring SSPR
+Microsoft Entra ID SSPR allows users to reset their own passwords without the need to contact IT support or administrators. With SSPR, users can verify their identity using different methods, such as email, text message, or a mobile app notification, and reset their password without any help. This feature is not only convenient for end users but also reduces the workload for IT support, increases security by ensuring that users have strong passwords, and saves time and resources. SSPR is an essential feature for any organization that wants to improve user productivity and reduce IT costs.
+
+Configuring SSPR
+Microsoft Entra ID SSPR allows users to reset their own passwords without the need to contact IT support or administrators. With SSPR, users can verify their identity using different methods, such as email, text message, or a mobile app notification, and reset their password without any help. This feature is not only convenient for end users but also reduces the workload for IT support, increases security by ensuring that users have strong passwords, and saves time and resources. SSPR is an essential feature for any organization that wants to improve user productivity and reduce IT costs.
+
+There are several things to keep in mind when considering implementing this feature in your organization:
+
+Firstly, SSPR requires a Microsoft Entra ID account with Global Administrator privileges to manage SSPR options. This permission will allow the user to always be able to reset their own passwords, no matter what options are configured.
+Additionally, SSPR uses a security group to limit the users who have SSPR privileges, providing an added layer of security to the feature.
+It’s important to note that all user accounts in your organization must have a valid license to use SSPR. This means that if your organization has licenses for Office 365 or Microsoft Entra P1 or P2, you can enable SSPR for all users. If not, you must purchase Microsoft Entra P1 licenses to enable SSPR for your users.
+
+The Microsoft Entra free-tier license only supports cloud users for SSPR, and only password change is supported, not a password reset.
+
+
+
 
