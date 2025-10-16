@@ -95,3 +95,65 @@ Initial subscription strategy: https://docs.microsoft.com/en-us/azure/cloud-adop
 Multi-subscription strategy: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/scale-subscriptions
 
 You can read more here: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/.
+
+Configuring Management Groups
+Azure management groups help you organize your resources and subscriptions and sit above the subscription layer, which allows global governance of the Azure platform.
+
+Subscriptions are organized into containers called management groups that allow a transitive flow of common conditions through subscription layers, such as Azure policies and RBAC permissions. This structure should always dictate a form of logical hierarchy structure that should be constructed to allow a flow of permissions or policies as required by the organization.
+
+<img width="1262" height="574" alt="image" src="https://github.com/user-attachments/assets/beb29a9b-0232-4b04-824e-57b60392c7a6" />
+
+Remember that the permission structure could be loosely defined at the subscription layer but is more appropriately defined at the level that allows the most restrictive access and only access to what is required.
+
+<img width="1228" height="388" alt="image" src="https://github.com/user-attachments/assets/936fd194-88f9-448b-b911-3f2a330bb22c" />
+
+Organizing subscriptions: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions
+
+Management groups documentation: https://learn.microsoft.com/en-us/azure/governance/management-groups/
+
+Management group structures within a Microsoft Entra tenant support organizational mapping. Consider your management group structure thoroughly when your organization plans its Azure adoption at scale.
+
+Determine how your organization separates out services that specific teams own or operate.
+
+Determine whether you have specific functions that you need to keep separate for reasons like business requirements, operational requirements, regulatory requirements, data residency, data security, or data sovereignty compliance.
+
+Use management groups to aggregate policy and initiative assignments via Azure Policy.
+
+Enable Azure role-based access control (RBAC) authorization for management group operations to override the default authorization. By default, any principal, like a user principal or service principal, within a Microsoft Entra tenant can create new management groups. For more information, see How to protect your resource hierarchy.
+
+
+
+
+The first management group in Azure is the Tenant Root Group—this is created by default and is the top parent group; all subsequent management groups will fall as child management groups under the root group. Also, the root group cannot be deleted.
+
+Also consider the following factors:
+
+A management group tree can support up to six levels of depth. This limit doesn't include the tenant root level or the subscription level.
+
+All new subscriptions are placed under the tenant root management group by default.
+
+ Instead, use management groups to assign Azure policies and initiatives that apply to all subscriptions in the management group that require the same security, governance, and compliance settings.
+
+ <img width="1600" height="608" alt="image" src="https://github.com/user-attachments/assets/4f293c3c-440a-4eaf-b688-495ce455dc90" />
+
+ <img width="1988" height="673" alt="image" src="https://github.com/user-attachments/assets/c6950042-783e-4ca1-81f4-1edba8cb471c" />
+
+ Understanding role-based-access-control
+Azure Role-Based Access Control (RBAC) is a tool that’s used to manage access to Azure resources. It provides fine-grained control over who can perform specific actions (such as creating, updating, or deleting resources) on specific resources within an Azure subscription. With Azure RBAC, you can grant permissions to users, groups, and applications, which is defined as the scope, such as a management group, subscription, resource group, or individual resource. This way, you can ensure that users have the necessary permissions to perform their tasks, while preventing them from accessing resources that they do not need.
+
+To use Azure RBAC, you need to have an Azure subscription and a Microsoft Entra tenant. You can then assign roles to users, groups, or applications within the Azure portal or by using Azure PowerShell or the Azure CLI.
+
+RBAC built-in Roles
+Azure RBAC includes built-in roles such as Owner, Contributor, and Reader, as well as custom roles that you can define yourself. 
+
+Owner role: This is the role that includes all permissions related to management; you can read, add, and remove resources. You also have the capability to add and remove other users to and from resources as owners or other roles.
+Contributor role: This role has the same permissions as an owner, except you cannot add or remove additional users to and from resources.
+Reader role: This role has the ability to view resources but cannot amend, add, or remove users or resources.
+
+There are multiple built-in roles within Azure, and it is recommended that you have a look at them to learn more: https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles.
+
+
+
+
+
+
