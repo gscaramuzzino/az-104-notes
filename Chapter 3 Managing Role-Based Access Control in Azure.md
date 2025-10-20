@@ -152,8 +152,75 @@ Reader role: This role has the ability to view resources but cannot amend, add, 
 
 There are multiple built-in roles within Azure, and it is recommended that you have a look at them to learn more: https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles.
 
+RBAC is a general term used for restricting access to users, based on a role. It works on the Just Enough Access (JEA) concept, where a specific user/group will be provided the minimum access required to perform their specific job on a specific resource. Custom roles can only be created and updated by a user who has the following role assigned: Microsoft.Authorization/roleDefinitions/write permissions.
 
+When it comes to RBAC, it is very important to understand how and where it is applied. Azure RBAC can be applied to the following security principals:
 
+User
+Group
+Service principal
+Managed identity
+
+ A role definition is a collection of permissions that defines the actions that can be performed on resources in Azure. When a user is assigned a role, they inherit the permissions defined in the role definition
+
+ When a user is assigned a role, they can perform the actions defined in the role definition. For example, a user assigned the contributor role for a resource group can create, update, and delete resources in that resource group. The role definition determines what actions the user can perform, such as read access, write access, or the deletion of resources.
+
+  Observe that the Contributor role definition in this example can perform all actions denoted by the *, and NotActions are items that are explicitly excluded from the role definition. They overwrite the allowed Actions that could be performed. 
+
+  <img width="1382" height="753" alt="image" src="https://github.com/user-attachments/assets/f808a425-447f-49bd-a095-514e44e50847" />
+
+  A role definition consists of three main elements:
+
+Actions: These are the operations that can be performed on Azure resources, such as read, write, delete, and manage access. Actions are represented in string format, which contains the resource provider and the resource type, like Microsoft.Storage/storageAccounts/write.
+NotActions: These are the operations that are explicitly denied, even if they are included in the Actions section. This is useful for creating custom roles with a limited set of permissions.
+AssignableScopes: This defines the scope within which the role definition can be assigned to users, groups, or applications. The scope can be a subscription, resource group, or a specific resource.
+Azure provides many built-in role definitions, such as Owner, Contributor, and Reader, that cover common use cases. However, you can also create custom role definitions to meet your specific requirements.
+
+It is highly recommended that you become more familiar with creating custom roles as well as understanding the definitions behind the built-in roles. If you would like to read more, please have a look at this URL, which provides some more insights into the breakdown of this concept: https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions.
+
+The next part of RBAC is scope. Scope is the target resource that you need to assign a role to. In Azure, there are four main scope levels that roles can be assigned to:
+
+Management groups
+Subscriptions
+Resource groups
+Resources
+
+In summary, RBAC consists of three main sections:
+
+Security principal: Selects who is going to have access
+Role: Selects what type of access is going to be assigned to the security principal
+Scope: Selects the resource that the user and the role will be applied to
+
+Microsoft Entra ID roles are used to manage the identities within the directory, whereas RBAC in this section is used to define permissions for resources that reside within the relevant subscription or management group.
+
+Custom RBAC roles can be created if the built-in RBAC roles do not meet specific requirements. Custom RBAC roles can be created in the following ways:
+
+The Azure portal
+Azure PowerShell
+The Azure CLI
+The REST API
+
+You are encouraged to read more by using the following links: https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
+
+https://learn.microsoft.com/en-us/azure/role-based-access-control/overview
+
+<img width="600" height="645" alt="image" src="https://github.com/user-attachments/assets/1074e4d3-da46-4c4e-a7ca-a791b3527659" />
+
+The role assignment determines what actions the user, group, or application can perform on that resource.
+
+<img width="1221" height="749" alt="image" src="https://github.com/user-attachments/assets/59945489-e14d-4028-9b34-3486c0c47784" />
+
+There is a limit of 5,000 custom RBAC roles per Microsoft Entra organization.
+
+Note
+
+You are encouraged to read further by using the following links, which go into more detail about custom RBAC:
+
+https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles-template
+
+https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-list-portal
+
+https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions
 
 
 
