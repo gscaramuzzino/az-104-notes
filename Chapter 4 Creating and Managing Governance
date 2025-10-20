@@ -1,0 +1,29 @@
+Chapter 4 Creating and Managing Governance
+
+This chapter covers how to establish governance in Azure and create mechanisms for managing it. In this chapter, you will learn how to create Azure policies and why they exist. You will also learn how to apply and manage resource tags.
+
+In this chapter, you are going to learn about the following main topics:
+
+Understanding Azure policies
+Applying and Managing Tags on Resources
+
+Azure Policies
+
+Azure Policy is a mechanism for effecting organizational compliance on the Azure platform. The service allows aggregated views to understand the overall state of an environment, with the ability to view resource-level granularity for compliance. All this can be viewed on the compliance dashboard as part of the Policy service. Remediation can be applied automatically and through bulk operations.
+
+Azure Policy helps maintain consistency across the entire cloud environment, improve security posture, and achieve greater operational efficiency.
+
+Some key features of Azure Policy include the following bulleted items, which will be explored in more detail in the sections ahead:
+
+Policy definition: Users can create custom policies using Azure Policy definition language (a JavaScript Object Notation (JSON)-based format) or choose from a library of built-in policy definitions provided by Azure
+Policy assignment: Policies can be assigned to specific resources, resource groups, or entire subscriptions, allowing for granular control over policy enforcement
+Policy evaluation: Azure Policy continuously evaluates the assigned policies against the existing resources and identifies any non-compliant resources
+Remediation: In certain cases, Azure Policy can automatically remediate non-compliant resources by applying the required changes to bring them into compliance
+Compliance reporting: Azure Policy provides comprehensive compliance reporting, enabling users to track the compliance status of their resources and identify any issues that need to be addressed
+Integration: Azure Policy can be integrated with Azure DevOps, Azure Security Center, and Azure Monitor to enhance governance, security, and monitoring capabilities across the cloud environment
+Overall, Azure Policy is an essential tool for organizations that want to maintain control over their Azure resources, ensuring they adhere to the necessary governance, risk, and compliance requirements.
+
+Azure Policy assesses compliance by comparing resource properties to business rules defined in JSON format. These are known as policy definitions.
+
+A policy initiative is a grouping of definitions that align with business objectives, such as the secure configuration of virtual machines (VMs). This could contain a policy to assess antivirus compliance and a policy for assessing disk encryption compliance, as well as other policies.
+
