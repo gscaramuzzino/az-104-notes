@@ -27,8 +27,8 @@ Azure Policy assesses compliance by comparing resource properties to business ru
 
 A policy initiative is a grouping of definitions that align with business objectives, such as the secure configuration of virtual machines (VMs). This could contain a policy to assess antivirus compliance and a policy for assessing disk encryption compliance, as well as other policies.
 
+<img width="1279" height="560" alt="image" src="https://github.com/user-attachments/assets/43a2878f-68b9-4b2c-9477-f4a205a0b1f1" />
 
-https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9781805122852/files/image/B20834_04_02.jpg
 
 Azure Policy focuses on resource properties for existing resources and resources being deployed. Azure Policy is used for the enforcement of governance standards within the Azure platform.
 RBAC focuses on user actions at different scopes. RBAC contributes to governance by enforcing permissions at the service principal layer.
@@ -65,4 +65,22 @@ DeployIfNotExists: This is used to perform a template deployment when non-compli
 Disabled: This is used to nullify the effect of a policy and is typically used for testing scenarios.
 Modify: This is used to modify the properties of resources and will apply to new and existing resources that meet the policy criteria. Resources can be remediated through a remediation task.
 
+<img width="1650" height="1485" alt="image" src="https://github.com/user-attachments/assets/d26cd98a-6b87-4726-bf22-8531676a7c7e" />
+
+Groups help you organize policies within an initiative.
+Remember that definitions are a guideline set of rules that are assessed, and parameters are the values to assess for.
+
+Azure Polcies not applied on Resource groups.
+
+ Note that newly applied policies may take several minutes to be applied, as well as for compliance to be reflected. Typically, policies take about 30 minutes to apply, while compliance runs once every 24 hours.
+
+ <img width="1650" height="807" alt="image" src="https://github.com/user-attachments/assets/931855c5-b66b-4bce-b44b-ced0d78ed7b8" />
+
+Resource compliance describes resource adherence to the defined policies to which they are applicable. Policy compliance can exist in three different states, as outlined here:
+
+Compliant: A resource conforms to defined policy standards.
+Non-compliant: A resource does not conform to the required policy standard.
+Exempt: A resource has been identified to be exempt from the policy evaluation. This is explicitly defined for an exemption or can’t be evaluated. Exempt resources will still be evaluated in the total compliance rating score.
+
+Policies can be used in conjunction with tags to effect compliance in an organization.
 
