@@ -84,3 +84,47 @@ Exempt: A resource has been identified to be exempt from the policy evaluation. 
 
 Policies can be used in conjunction with tags to effect compliance in an organization.
 
+Applying and Managing Tags on Resources
+Tags in Azure are metadata labels that can be assigned to resources, resource groups, and subscriptions to help users organize, categorize, and manage their cloud resources more effectively. Tags are key-value pairs that provide additional information about the resources and can be used for various purposes, such as tracking ownership, managing cost allocation, and enforcing governance policies. Here are some reasons why organizations may want to use tags in Azure:
+
+Organization: Tags help users organize their resources based on specific criteria, such as project, environment, or department. This makes it easier to manage and locate resources within a complex cloud environment.
+Cost management: By tagging resources with relevant cost center, project, or department information, organizations can more accurately track and allocate costs associated with their cloud resources.
+Governance and compliance: Tags can be used in conjunction with Azure Policy to enforce governance rules and ensure that resources comply with organizational standards. For example, a policy can require that all resources have specific tags assigned, such as owner and expiration date.
+Automation: Tags can be utilized in automation scripts or templates to filter resources based on specific criteria, streamlining operations and management tasks.
+Reporting and monitoring: Tags can be used in reporting and monitoring tools, such as Azure Cost Management or Azure Monitor, to create custom dashboards and reports based on specific resource groupings.
+In summary, tags in Azure provide a flexible and powerful way to organize, manage, and track cloud resources, enabling organizations to maintain better control over their cloud environment and optimize resource usage, costs, and compliance.
+
+Tag names are case-insensitive and tag values are case-sensitive.
+
+Some important common tag patterns are noted here:
+
+Functional: Classification of resources by defining the functionality the resource(s) introduces to the workload environment. Here are examples of functional tags:
+Application name: Use this to classify a set of resources for an application
+Environment: DEV/TEST/UAT/STAGING/PROD/DR
+Classification: This tag can be used to describe data classification pertaining to resources. This is particularly valuable for compliance alignment, such as with the General Data Protection Regulation (GDPR). The following is an example of a classification tag:
+Confidentiality: Private/Public/Restricted
+Accounting: This set of tags is particularly focused on cost governance and the assignment of resource(s) to a billing unit/entity within the organization. The following are examples of accounting tags:
+Department: Finance/IT/HR/Marketing/Sales
+Region: West Europe/Central US, and so on
+Partnership: This set of tags is used to identify people in the organization who can or should be contacted as they contain relevance to the resource. The following are examples of partnership tags:
+Owner: Identify the product owner for the service
+Support email: Identify who to contact when support is needed
+Business criticality: Define how important the resource is to the business (normally a metric value such as BC1/BC2/BC3)
+SLA objectives: Define a service-level agreement (SLA) tier that would apply to determine the support required for the service (for example, SLA Tier 1/SLA Tier 2/SLA Tier 3)
+Purpose: This set of tags is reserved for understanding the key deliverable for the application and is aligned with a business objective. Here is an example of a purpose tag:
+Purpose: Describe the application’s purpose in a single line. This assists later in troubleshooting by providing a basic understanding of what the application is and what it does.
+
+The replace command switch will remove tags that are not present in the $tags variable. The merge command will amend tags that are present and add any missing tags defined in the $tags variable.
+
+You are encouraged to read up further by using the following links:
+
+Microsoft documentation on tags: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json
+
+Resource naming and tagging decision guide: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide?toc=%2Fazure%2Fazure-resource-manager%2Fmanagement%2Ftoc.json
+
+Prescriptive guidance for resource tagging: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/govern/guides/complex/prescriptive-guidance#resource-tagging
+
+Applying tags in PowerShell: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json#powershell
+
+
+
