@@ -117,6 +117,20 @@ The archive storage tier is set on the blob level and not on the storage level. 
 
 The service-level agreement (SLA) for all services when designing and deploying to Azure. The great news with storage accounts is that you are assured of 99% availability of services.
 
-Data tiers can be changed between hot and cool; doing so will charge the full Premium at the conversion of the existing storage tier. This charge does not apply to Blob Storage accounts
+Data tiers can be changed between hot and cool; doing so will charge the full Premium at the conversion of the existing storage tier. This charge does not apply to Blob Storage accounts.
+
+Standard Disk Storage
+Standard disk storage offers two flavors: a Standard hard disk drive (HDD) or Standard SSD to store data, and it is the most cost-effective storage tier that you can choose. Standard disk storage can only use LRS or GRS to support high availability (HA) for your data and applications.
+The Standard HDD disk type is best suited for scenarios that require infrequent access (such as for backups), dev/test workloads, or workloads with non-critical data. While the Standard SSD disk type is best suited for test and development workloads, most web servers and applications do not require fast throughput or high IOPs.
+
+Premium Disk Storage
+With Premium disk storage, your data is stored on SSDs. This storage is faster than the Standard SSD range. Not all Azure VM series can use this type of storage. It can only be used with VM stock-keeping units (SKUS) that contain an S in them, signifying the SSD portion of the VM, such as DS, DSv5, GS, LS, ES, or FS series Azure VMs.
+
+Ultra Disk Storage
+Azure Ultra Disks are a type of managed disk designed to provide extremely high performance and low latency for mission-critical and data-intensive workloads. They are suitable for applications that require consistent sub-millisecond latency and high IOPS and throughput.
+
+Managed disks are recommended by Microsoft over unmanaged disks.
+
+
 
 
