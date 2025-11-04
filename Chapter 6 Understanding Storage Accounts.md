@@ -131,6 +131,87 @@ Azure Ultra Disks are a type of managed disk designed to provide extremely high 
 
 Managed disks are recommended by Microsoft over unmanaged disks.
 
+Redundancy
+Redundancy refers to the number of copies of data that are available at any time; this supports the failure of copies and ensures the continuity of services dependent on the redundancy option chosen. Regardless of the option, data is replicated three times in a storage account for the primary region.
+
+LRS
+This is storage that is copied three times synchronously within a single data center in a chosen region. LRS is the cheapest replication option that can be chosen and is not intended for business-critical workloads that require HA or resiliency. Protection is provided against server rack and drive failures; however, the protection is limited against unforeseen disasters that could occur within the data center (such as flooding or fire).
+
+
+<img width="1511" height="818" alt="image" src="https://github.com/user-attachments/assets/1cafa1ae-8a40-4939-aa56-959bd007eb53" />
+
+
+ZRS
+ZRS maintains three copies of data are copied synchronously across three Azure AZs for the selected region; this protects against failure at a data center layer. Each AZ is a distinct physical site equipped with its own power, cooling, and networking infrastructure. The ZRS redundancy option is recommended for HA within a single region and can provide reliability of at least 99.9999999999% (12 9s) annually. If a zone becomes unavailable, your data is still accessible, both for read and write operations. This option may also be chosen where data residency requirements apply, such as through a compliance standard that the organization aligns with.
+
+<img width="1502" height="630" alt="image" src="https://github.com/user-attachments/assets/241fd001-e398-4279-8dda-a62bc2c34b18" />
+
+GRS
+This option is chosen to protect against regional failure while also offering protection within a single data center for each region. Effectively, you get six copies of data (three in each region). Data is copied asynchronously across regions but synchronously within the data center.
+
+<img width="1611" height="714" alt="image" src="https://github.com/user-attachments/assets/2f64f39a-638d-48ff-8324-67c5501276de" />
+
+It is important to note that data copied to the secondary region is inaccessible for read and write operations unless a failover has been initiated. In the failover state, you can choose to select the secondary region as the new primary region, and you will then have the option to read and write data again. To enable read access to data in the secondary region, you should deploy RA-GRS storage.
+
+GZRS
+GZRS is chosen to protect against a regional failure while also offering zonal HA and protection within each region. Effectively, you get six copies of data (three in the primary region distributed across AZs, and three distributed within a data center in the secondary region). Data is copied asynchronously across regions but synchronously within the region and data centers. There are two types of GZRS storage, the first being GZRS, where data is replicated but, in the event of a failure, remains inaccessible during the failover process. The second is RA-GZRS, where your data is accessible in the event of a failure in a read-only state in the secondary region during the failover process. You can, however, read and write your data in the new primary region upon completion of the failover for both offerings.
+
+<img width="1311" height="543" alt="image" src="https://github.com/user-attachments/assets/e280bae5-7240-4265-a26b-b5b374fa5ba5" />
+
+The archive tier of storage does not support ZRS, GZRS, and RA-GZRS redundancy options.
+
+Storage Encryption
+Encryption is the process of converting data into a format that is unreadable by unauthorized parties, protecting the confidentiality and integrity of the information. This is done using cryptographic algorithms, which require encryption keys to transform the data into an encrypted form (ciphertext) and back to its original form (plaintext). Encryption plays a crucial role in securing sensitive data from unauthorized access, tampering, or theft.
+
+Encrypting data is a vital security measure for safeguarding sensitive information and adhering to various regulations and industry norms. Implementing encryption allows you and your organization to do the following:
+
+Defend confidential data against unauthorized access and potential data breaches
+Uphold privacy and foster trust among parties participating in data transactions
+Meet the requirements of industry-specific rules and standards (such as GDPR, HIPAA, and PCI DSS) that demand data protection measures
+Secure intellectual property, proprietary knowledge, and other valuable data assets
+Preserve the integrity of data by deterring tampering and illegitimate modifications
+Azure offers the ability to activate encryption at multiple levels within the platform, such as on the infrastructure layer and the storage layer
+
+always advised where possible to maintain the highest levels of security possible.
+
+Storage encryption on Azure: This refers to encryption services provided by Azure to protect data stored within its storage services, such as Azure Blob Storage, Azure Files, and Azure Disks. Azure provides several encryption options, including server-side encryption (SSE) using service-managed keys, customer-managed keys (CMK), or customer-provided keys. Azure Storage uses SSE, which is encryption on the host layer of services within Azure and is used to automatically encrypt data when it is persisted to the cloud. This encryption helps protect your data and meet organizational security and compliance commitments. Azure also supports client-side encryption, where data is encrypted before it is sent to Azure Storage. Some key points to note are as follows:
+Azure Storage service-side encryption encrypts data using 256-bit AES encryption, which is FIPS 140-2 compliant.
+Encryption is enabled for all storage accounts and cannot be disabled.
+Data is encrypted regardless of performance tier, access tier, or deployment model.
+There is no additional cost for Azure Storage encryption.
+Infrastructure encryption: Infrastructure encryption in Azure storage accounts is an enhanced security feature that offers customers an elevated level of data protection. When this feature is activated, data stored in a storage account undergoes two distinct encryption processes, one at the service level and another at the infrastructure level. This dual encryption approach employs two separate encryption algorithms and keys, ensuring that even in the event of a compromise of one encryption layer, the other layer continues to safeguard the data.
+Different Encryption Types on a Storage Account
+There are two types of encryption key management available for Azure Storage: Microsoft-managed keys (MMK) and customer-managed keys (CMK):
+
+MMK: By default, data in a new storage account is encrypted with MMK. These keys are managed and maintained by Microsoft, ensuring that the encryption and decryption of data are handled seamlessly without any additional effort from the user. Microsoft also takes care of key rotation, adhering to compliance requirements.
+CMK: Users who prefer to have more control over their encryption keys can opt for CMK. With CMK, you can specify your own key for encryption tasks. These keys are stored in the Azure Key Vault or Azure Key Vault Managed Hardware Security Module (HSM) to use for encrypting and decrypting data in Blob Storage and Azure Files. This option allows users to manage and audit key rotation themselves, providing a higher level of control over their data encryption.
+
+SSE: Azure automatically encrypts data before it’s stored in Azure Storage services and decrypts it when accessed. There are three key management options for SSE:
+Service-managed keys: Azure automatically manages the encryption keys. This is the default option, and it requires no additional configuration.
+CMK: Customers can manage their encryption keys using Azure Key Vault. This provides greater control over key management and rotation.
+Customer-provided keys: Customers can supply their encryption keys for each data transaction. This offers the highest level of control but also requires more management overhead.
+Client-side encryption: Data is encrypted by the client application before it’s sent to Azure Storage. Decryption also occurs on the client side when the data is accessed. This approach ensures that data is encrypted both in transit and at rest in Azure Storage, and it gives customers full control over the encryption process and key management.
+
+Storage accounts: https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview
+
+Azure Blob Storage: https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction
+
+Blob access tiers: https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview
+
+Understanding block blobs, append blobs, and page blobs: https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs
+
+Blobfuse2: https://github.com/Azure/azure-storage-fuse
+
+Rehydrating blob data from the archive tier: https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview
+
+Storage account SLA: https://azure.microsoft.com/en-us/support/legal/sla/storage
+
+Storage redundancy: https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy
+
+
+
+
+
 
 
 
